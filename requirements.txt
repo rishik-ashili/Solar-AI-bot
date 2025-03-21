@@ -1,3 +1,6 @@
 streamlit==1.25.0
 requests==2.31.0
 python-dotenv==1.0.0
+groq==0.4.0
+# Use a prebuilt wheel version of Pillow
+pillow==10.0.0
