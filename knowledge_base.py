@@ -2,14 +2,14 @@ class SolarKnowledgeBase:
     def __init__(self):
         """Initialize the solar knowledge base with system prompts for various topics"""
         
-        # Base system prompt for all interactions
+        
         self.base_prompt = """
         You are an expert solar industry consultant assistant. Provide accurate, helpful information about solar energy 
         to both technical and non-technical users. Always be professional, concise, and factual.
         Base your responses on current industry knowledge as of October 2024.
         """
         
-        # Specialized knowledge areas
+        
         self.knowledge_areas = {
             "technology": """
             Knowledge area: Solar Panel Technology
@@ -121,7 +121,7 @@ class SolarKnowledgeBase:
         """
         query = query.lower()
         
-        # Simple keyword matching for topic detection
+        
         keywords = {
             "technology": ["panel", "module", "efficiency", "monocrystalline", "polycrystalline", "thin-film", 
                           "inverter", "microinverter", "power optimizer", "battery", "storage", "bifacial"],
@@ -137,7 +137,7 @@ class SolarKnowledgeBase:
                       "new technology", "industry", "forecast", "prediction"]
         }
         
-        # Count keyword matches for each topic
+        
         topic_scores = {topic: 0 for topic in self.knowledge_areas.keys()}
         
         for topic, topic_keywords in keywords.items():
@@ -145,10 +145,10 @@ class SolarKnowledgeBase:
                 if keyword in query:
                     topic_scores[topic] += 1
         
-        # Find topic with highest score
+        
         best_topic = max(topic_scores.items(), key=lambda x: x[1])
         
-        # If no clear match found, return general
+        
         if best_topic[1] == 0:
             return None
             

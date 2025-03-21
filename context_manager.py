@@ -19,9 +19,9 @@ class ContextManager:
         """
         self.conversation_history.append({"role": role, "content": content})
         
-        # Trim history if it exceeds max length
+        
         if len(self.conversation_history) > self.max_context_length:
-            # Remove oldest messages but keep the system prompt if it exists
+            
             if self.conversation_history[0]["role"] == "system":
                 self.conversation_history = [self.conversation_history[0]] + self.conversation_history[-(self.max_context_length-1):]
             else:
